@@ -1,40 +1,32 @@
 package com.example.week1.ui.main;
 import java.util.ArrayList;
-import androidx.appcompat.app.AppCompatActivity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
+
+import androidx.lifecycle.Observer;
+
 import android.os.Bundle;
-import java.util.List;
 import android.content.Context;
 import android.content.ContentResolver;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.ListView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.support.annotation.Nullable;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
+
 import com.example.week1.R;
-import com.example.week1.databinding.FragmentMainBinding;
+import com.example.week1.databinding.FragmentFirstBinding;
 
 public class CallAddress extends Fragment {
     private ArrayList<PhoneBook> addrList;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
-    private FragmentMainBinding binding;
+    private FragmentFirstBinding binding;
     private Context context;
+    private CustomAdapter mAdapter;
     private PageViewModel pageViewModel;
     public static CallAddress newInstance() {
         CallAddress fragment = new CallAddress();
@@ -43,25 +35,30 @@ public class CallAddress extends Fragment {
         return fragment;
     }
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addrList = new ArrayList<>();
-        ContentResolver resolver = context.getContentResolver();
+        mAdapter = new CustomAdapter(addrList);
+        ContentResolver resolver = getActivity().getContentResolver();
     }
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentMainBinding.inflate(inflater, container, false);
+        binding = FragmentFirstBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         mLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView = root.findViewById(R.id.)
-        final TextView textView = binding.sectionLabel;
-        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        mRecyclerView = root.findViewById(R.id.recyclerview_list);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+
+        //final TextView textView = binding.sectionLabel;
+//        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 
