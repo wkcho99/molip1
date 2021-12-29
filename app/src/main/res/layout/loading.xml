@@ -18,7 +18,7 @@
         android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="영석이의 하루"
+        android:text="조원경X김수민"
         android:textColor="#FFFFFF"
         android:textSize="30dp"/>
 

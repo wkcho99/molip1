@@ -29,7 +29,8 @@ public class PhoneBook{
         this.tel = tel;
     }
 
-    public PhoneBook(String name, String tel) {
+    public PhoneBook(String id, String name, String tel) {
+        this.id = id;
         this.name = name;
         this.tel = tel;
     }

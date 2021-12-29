@@ -62,6 +62,7 @@ public class CallAddress extends Fragment {
         return root;
     }
     private void updateData(){
+        int i = 1;
         addrList.clear();
         String [] arrProjection = {
                 ContactsContract.Contacts._ID,
@@ -102,10 +103,11 @@ public class CallAddress extends Fragment {
 
 
                 /* Make ContactInfo and update the array */
-                PhoneBook contactInfo = new PhoneBook(
+                PhoneBook contactInfo = new PhoneBook(Integer.toString(i),
                         clsCursor.getString(clsCursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)),
                         phone
                 );
+                i++;
                 addrList.add(contactInfo);
             } while (clsCursor.moveToNext());
         }

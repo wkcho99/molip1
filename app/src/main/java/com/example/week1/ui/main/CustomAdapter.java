@@ -31,7 +31,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public class CustomViewHolder extends RecyclerView.ViewHolder {
         protected TextView name;
         protected TextView phnumber;
-
+        protected TextView id;
         public CustomViewHolder(View view) {
             super(view);
 
@@ -41,13 +41,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
                         Intent intent = new Intent(context, ContactActivity.class);
+                        intent.putExtra("id",mList.get(pos).getId());
                         intent.putExtra("name",mList.get(pos).getName());
                         intent.putExtra("phnumber",mList.get(pos).getTel());
                         context.startActivity(intent);
                     }
                 }
             });
-
+            this.id = view.findViewById(R.id.id_listitem);
             this.name = view.findViewById(R.id.name_listitem);
             this.phnumber = view.findViewById(R.id.tel_listitem);
         }
@@ -72,12 +73,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewholder, int position) {
         PhoneBook data = mList.get(position);
+        viewholder.id.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
         viewholder.name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
         viewholder.phnumber.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
-
+        viewholder.id.setGravity(Gravity.LEFT);
         viewholder.name.setGravity(Gravity.LEFT);
         viewholder.phnumber.setGravity(Gravity.LEFT);
-
+        viewholder.id.setText(data.getId());
         viewholder.name.setText(data.getName());
         viewholder.phnumber.setText(data.getTel());
     }
