@@ -12,7 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import android.database.Cursor;
+import android.provider.ContactsContract;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,10 +25,9 @@ public class CallAddress extends Fragment {
     private ArrayList<PhoneBook> addrList;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
-    private FragmentFirstBinding binding;
     private Context context;
     private CustomAdapter mAdapter;
-    private PageViewModel pageViewModel;
+    private ContentResolver contentResolver;
     public static CallAddress newInstance() {
         CallAddress fragment = new CallAddress();
         Bundle bundle = new Bundle();
@@ -38,20 +38,20 @@ public class CallAddress extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addrList = new ArrayList<>();
-        mAdapter = new CustomAdapter(addrList);
-        ContentResolver resolver = getActivity().getContentResolver();
+        context = getActivity();
+        mAdapter = new CustomAdapter(context, addrList);
+        contentResolver = getActivity().getContentResolver();
     }
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View root = inflater.inflate(R.layout.fragment_first, container, false);
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView = root.findViewById(R.id.recyclerview_list);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-
+        updateData();
         //final TextView textView = binding.sectionLabel;
 //        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
 //            @Override
@@ -61,11 +61,61 @@ public class CallAddress extends Fragment {
 //        });
         return root;
     }
+    private void updateData(){
+        addrList.clear();
+        String [] arrProjection = {
+                ContactsContract.Contacts._ID,
+                ContactsContract.Contacts.DISPLAY_NAME
+        };
+        String[] arrPhoneProjection = {
+                ContactsContract.CommonDataKinds.Phone.NUMBER
+        };
+        String[] arrEmailProjection = {
+                ContactsContract.CommonDataKinds.Email.DATA
+        };
 
+        Cursor clsCursor=contentResolver.query (
+                ContactsContract.Contacts.CONTENT_URI,
+                arrProjection,
+                ContactsContract.Contacts.HAS_PHONE_NUMBER + "=1" ,
+                null,
+                "UPPER(" + ContactsContract.Contacts.DISPLAY_NAME + ") ASC"
+        );
+
+        if (clsCursor.moveToFirst()) {
+            do {
+                /* Get phone number. This requires new cursor since phone number is
+                not located in ContactContract.Contacts */
+                String contactId = clsCursor.getString(0);
+
+                // phone number
+                Cursor phoneCursor = contentResolver.query(
+                        ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                        arrPhoneProjection,
+                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId,
+                        null, null
+                );
+                phoneCursor.moveToNext();
+                String realnumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                String phone = realnumber.replace("-","");
+                phoneCursor.close();
+
+
+                /* Make ContactInfo and update the array */
+                PhoneBook contactInfo = new PhoneBook(
+                        clsCursor.getString(clsCursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)),
+                        phone
+                );
+                addrList.add(contactInfo);
+            } while (clsCursor.moveToNext());
+        }
+        clsCursor.close();
+        /* Notify to the adapter */
+        mAdapter.notifyDataSetChanged();
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
     }
 //    // 2. 전화번호가 저장되어 있는 테이블 주소값(Uri)을 가져오기
 //    Uri phoneUri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;

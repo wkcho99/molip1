@@ -9,11 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import com.example.week1.ui.main.SectionsPagerAdapter;
-import com.example.week1.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
-private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +36,22 @@ private ActivityMainBinding binding;
 //        tabs.setupWithViewPager(viewPager);
 //        FloatingActionButton fab = binding.fab;
 
+    }
+    @Override
+    protected void onStop() {
+        setResult(RESULT_OK);
+        super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_OK);
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        setResult(RESULT_OK);
+        super.onDestroy();
     }
 }
