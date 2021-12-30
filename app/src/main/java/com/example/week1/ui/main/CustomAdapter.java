@@ -10,6 +10,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.week1.ContactActivity;
@@ -22,6 +24,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     private ArrayList<PhoneBook> mList;
     private Context context;
+    int[] images = new int[] {R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5, R.drawable.profile6, R.drawable.profile7};
 
     public CustomAdapter(Context context, ArrayList<PhoneBook> list) {
         this.context = context;
@@ -32,9 +35,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         protected TextView name;
         protected TextView phnumber;
         protected TextView id;
+        protected ImageView profile;
+        protected Button bt;
         public CustomViewHolder(View view) {
             super(view);
-
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -48,9 +52,25 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                     }
                 }
             });
-            this.id = view.findViewById(R.id.id_listitem);
+            //this.id = view.findViewById(R.id.id_listitem);
             this.name = view.findViewById(R.id.name_listitem);
-            this.phnumber = view.findViewById(R.id.tel_listitem);
+            this.profile = view.findViewById(R.id.profile_listitem);
+            this.bt = view.findViewById(R.id.button);
+            bt.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
+                    Sharing_intent.setType("text/plain");
+
+                    String Test_Message = "[이름]"+mList.get(getAdapterPosition()).getName()+"\n"+"[전화번호]"+mList.get(getAdapterPosition()).getTel();
+
+                    Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
+
+                    Intent Sharing = Intent.createChooser(Sharing_intent, "공유하기");
+                    context.startActivity(Sharing);
+                }
+            });
+            //this.phnumber = view.findViewById(R.id.tel_listitem);
         }
     }
 
@@ -65,7 +85,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                 .inflate(R.layout.item_list, viewGroup, false);
 
         CustomViewHolder viewHolder = new CustomViewHolder(view);
-
         return viewHolder;
     }
 
@@ -73,15 +92,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewholder, int position) {
         PhoneBook data = mList.get(position);
-        viewholder.id.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        //viewholder.id.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
         viewholder.name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-        viewholder.phnumber.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
-        viewholder.id.setGravity(Gravity.LEFT);
+        int imageId = (int)(Math.random() * images.length);
+        viewholder.profile.setBackgroundResource(images[imageId]);
+        //viewholder.phnumber.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+        //viewholder.id.setGravity(Gravity.LEFT);
         viewholder.name.setGravity(Gravity.LEFT);
-        viewholder.phnumber.setGravity(Gravity.LEFT);
-        viewholder.id.setText(data.getId());
+        //viewholder.phnumber.setGravity(Gravity.LEFT);
+        //viewholder.id.setText(data.getId());
         viewholder.name.setText(data.getName());
-        viewholder.phnumber.setText(data.getTel());
+        //viewholder.phnumber.setText(data.getTel());
     }
 
     @Override

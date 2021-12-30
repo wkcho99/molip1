@@ -25,16 +25,6 @@ public class MainActivity extends AppCompatActivity {
         /* Make and link TabLayout with viewPager */
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-//
-//     binding = ActivityMainBinding.inflate(getLayoutInflater());
-//     setContentView(binding.getRoot());
-//
-//        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-//        ViewPager viewPager = binding.viewPager;
-//        viewPager.setAdapter(sectionsPagerAdapter);
-//        TabLayout tabs = binding.tabs;
-//        tabs.setupWithViewPager(viewPager);
-//        FloatingActionButton fab = binding.fab;
 
     }
     @Override

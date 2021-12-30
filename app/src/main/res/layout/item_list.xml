@@ -1,56 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/id_listitem"
-        android:layout_width="0dp"
-        app:layout_constraintHorizontal_weight="1"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+    <ImageView
+        android:id="@+id/profile_listitem"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity = "center"
+        android:background="@drawable/basic_profile"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/name_listitem"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:padding="5dp"
-        android:textAlignment="center"
-        android:text="123"
-        android:textStyle="bold"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/name_listitem"
-        android:layout_width="0dp"
-        app:layout_constraintHorizontal_weight="2"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/id_listitem"
-        app:layout_constraintRight_toLeftOf="@id/tel_listitem"
-        android:padding="5dp"
         android:layout_margin="10dp"
-        android:textAlignment="center"
+        android:padding="5dp"
         android:text="english"
-        android:textStyle="bold"/>
-
-
-    <TextView
-        android:id="@+id/tel_listitem"
-        android:layout_width="0dp"
-        app:layout_constraintHorizontal_weight="2"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/name_listitem"
-        android:padding="5dp"
-        android:layout_margin="10dp"
-        android:textAlignment="center"
-        android:text="phone"
-        android:textStyle="bold" />
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintLeft_toRightOf="@id/profile_listitem"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+
+        android:id="@+id/button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/share"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="5dp" />
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tel_listitem"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        app:layout_constraintHorizontal_weight="2"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintLeft_toRightOf="@id/name_listitem"-->
+    <!--        android:padding="5dp"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:text="phone"-->
+    <!--        android:textStyle="bold" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

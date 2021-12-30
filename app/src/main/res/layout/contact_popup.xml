@@ -17,8 +17,8 @@
             android:id="@+id/NAME"
             android:layout_width="350dp"
             android:layout_height="100dp"
-            android:background="#FFFFFF"
             android:layout_marginTop="50dp"
+            android:background="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/NUMBER"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -88,23 +88,31 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="198dp"
-            android:layout_marginTop="516dp"
+            android:layout_marginStart="72dp"
 
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="50dp">
+            android:layout_marginTop="516dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/call" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="150dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/comments" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/bin" />
 
         </LinearLayout>
 

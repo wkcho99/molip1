@@ -11,8 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
-//import com.github.chrisbanes.photoview.PhotoView;
-//import com.minus21.mainapp.ui.main.PlaceholderFragment2;
+
 
 public class PopupActivity extends Activity {
 //    PhotoView imageView;
