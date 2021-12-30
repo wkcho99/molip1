@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -56,18 +57,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             this.name = view.findViewById(R.id.name_listitem);
             this.profile = view.findViewById(R.id.profile_listitem);
             this.bt = view.findViewById(R.id.button);
-            bt.setOnClickListener(new View.OnClickListener(){
+            bt.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
-                    Sharing_intent.setType("text/plain");
+                public void onClick(View v) {
 
-                    String Test_Message = "[이름]"+mList.get(getAdapterPosition()).getName()+"\n"+"[전화번호]"+mList.get(getAdapterPosition()).getTel();
+                    Context c = v.getContext();
+                    Intent intent2 = new Intent(Intent.ACTION_DIAL);
+                    intent2.setData(Uri.parse("tel:"+mList.get(getAdapterPosition()).getTel()));
+                    context.startActivity(intent2);
 
-                    Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
-
-                    Intent Sharing = Intent.createChooser(Sharing_intent, "공유하기");
-                    context.startActivity(Sharing);
                 }
             });
             //this.phnumber = view.findViewById(R.id.tel_listitem);

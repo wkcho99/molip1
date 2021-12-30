@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 public class ContactActivity extends Activity {
     TextView name;
     TextView tel;
@@ -40,6 +43,9 @@ public class ContactActivity extends Activity {
         else tel.setText(Phnumber);
         Button b = findViewById(R.id.button2);
         Button b3 = findViewById(R.id.button3);
+        Button b4 = findViewById(R.id.button4);
+//        Button b6 = findViewById(R.id.button6);
+//        Button b7 = findViewById(R.id.button7);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,5 +68,46 @@ public class ContactActivity extends Activity {
 
             }
         });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
+                Sharing_intent.setType("text/plain");
+
+                String Test_Message = "[이름]" + Name + "\n" + "[전화번호]" + Phnumber;
+
+                Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
+
+                Intent Sharing = Intent.createChooser(Sharing_intent, "공유하기");
+                startActivity(Sharing);
+            }
+        });
+
+//        b5.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent insert = new Intent(Intent.ACTION_INSERT,Uri.parse("content://contacts/people"));
+//                startActivity(insert);
+//            }
+//        });
+//        b6.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//
+//            public void onClick(View view) {
+//                Intent intentInsertEdit = new Intent(Intent.ACTION_EDIT);
+//                // Sets the MIME type
+//                intentInsertEdit.setType(ContactsContract.Contacts.);
+////                Context c = view.getContext();
+////                Intent edit = new Intent(Intent.ACTION_EDIT,Uri.parse("content://contacts/people/"+ ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
+//                startActivity(intentInsertEdit);
+//            }
+//        });
+//        b7.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent delete = new Intent(Intent.ACTION_DELETE,Uri.parse("content://contacts/people/"+ ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
+//                startActivity(delete);
+//            }
+//        });
     }
     }
