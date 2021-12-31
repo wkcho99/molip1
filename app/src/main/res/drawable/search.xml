@@ -7,14 +7,13 @@
             <stroke
 
                 android:width="2dp"
-
-                android:color="@color/beige" />
+                android:color="@color/white" />
 
             <corners android:radius="10dp"/>
 
             <solid
 
-                android:color="#FFFFFF" />
+                android:color="@color/beige" />
 
         </shape>
 
@@ -30,13 +29,13 @@
 
                 android:width="2dp"
 
-                android:color="@color/beige" />
+                android:color="@color/white" />
 
             <corners android:radius="10dp"/>
 
             <solid
 
-                android:color="#FFFFFF" />
+                android:color="@color/beige" />
 
         </shape>
     </item>
