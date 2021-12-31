@@ -27,9 +27,9 @@ public class ContactActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.contact_popup);
-        ImageView mImageView = (ImageView)findViewById(R.id.profile);
+        //ImageView mImageView = (ImageView)findViewById(R.id.profile);
         int imageId = (int)(Math.random() * images.length);
-        mImageView.setBackgroundResource(images[imageId]);
+        //mImageView.setBackgroundResource(images[imageId]);
         name = (TextView) findViewById(R.id.name);
         tel = (TextView) findViewById(R.id.number);
 

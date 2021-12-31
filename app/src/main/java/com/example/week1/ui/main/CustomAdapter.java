@@ -91,7 +91,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public void onBindViewHolder(@NonNull CustomViewHolder viewholder, int position) {
         PhoneBook data = mList.get(position);
         //viewholder.id.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-        viewholder.name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        viewholder.name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         int imageId = (int)(Math.random() * images.length);
         viewholder.profile.setBackgroundResource(images[imageId]);
         //viewholder.phnumber.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
