@@ -11,18 +11,22 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
-
+import com.github.chrisbanes.photoview.PhotoView;
+import com.example.week1.ui.main.PlaceholderFragment2;
 
 public class PopupActivity extends Activity {
-//    PhotoView imageView;
+    PhotoView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.img_popup);
+        imageView = (PhotoView) findViewById(R.id.expanded_img);
+
         Intent intent = getIntent();
         String uri = intent.getStringExtra("url");
-//        Glide.with(this).load(uri).into(imageView);
+        Glide.with(this).load(uri).into(imageView);
 
     }
 
