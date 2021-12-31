@@ -4,20 +4,21 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="#F08080">
+    android:background="@color/beige">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@drawable/ic_launcher_background"
-        android:foreground="@drawable/ic_launcher_foreground"
-        android:layout_gravity="center">
-    </ImageView>
+        android:layout_width="334dp"
+        android:layout_height="184dp"
+        android:layout_gravity="center"
+        android:background="@drawable/fish"
+        android:foreground="@drawable/fish"></ImageView>
 
     <TextView
         android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/notesanskr_bold"
+        android:includeFontPadding="false"
         android:text="조원경X김수민"
         android:textColor="#FFFFFF"
         android:textSize="30dp"/>
