@@ -31,8 +31,10 @@ public class Launcher extends Activity {
             Manifest.permission.INTERNET,
             Manifest.permission.CALL_PHONE,
             Manifest.permission.WRITE_CONTACTS,
-            Manifest.permission.ACTIVITY_RECOGNITION
-
+            Manifest.permission.ACTIVITY_RECOGNITION,
+            Manifest.permission.WRITE_CONTACTS,
+            Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
     @Override

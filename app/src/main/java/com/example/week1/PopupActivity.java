@@ -1,6 +1,5 @@
 package com.example.week1;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +26,6 @@ public class PopupActivity extends Activity {
         Intent intent = getIntent();
         String uri = intent.getStringExtra("url");
         Glide.with(this).load(uri).into(imageView);
-
     }
 
 }

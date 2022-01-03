@@ -12,6 +12,9 @@ import com.example.week1.ui.main.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

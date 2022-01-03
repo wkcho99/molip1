@@ -23,7 +23,7 @@ public class PreferenceManager {
 
     private static final boolean DEFAULT_VALUE_BOOLEAN = false;
 
-    private static final int DEFAULT_VALUE_INT = -1;
+    private static final int DEFAULT_VALUE_INT = 0;
 
     private static final long DEFAULT_VALUE_LONG = -1L;
 
