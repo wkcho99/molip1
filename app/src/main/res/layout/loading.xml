@@ -6,6 +6,16 @@
     android:orientation="vertical"
     android:background="@color/beige">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notesanskr_bold"
+        android:includeFontPadding="false"
+        android:padding="10dp"
+        android:text="조원경 X 김수민"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+
     <ImageView
         android:layout_width="334dp"
         android:layout_height="184dp"
@@ -14,12 +24,13 @@
         android:foreground="@drawable/fish"></ImageView>
 
     <TextView
-        android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/notesanskr_bold"
         android:includeFontPadding="false"
-        android:text="조원경X김수민"
+        android:padding="10dp"
+        android:text="Loading..."
         android:textColor="#FFFFFF"
-        android:textSize="30dp"/>
+        android:textSize="30dp" />
+
 </LinearLayout>

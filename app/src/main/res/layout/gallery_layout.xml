@@ -14,7 +14,6 @@ android:layout_height="wrap_content" >
 <ImageView
     android:id="@+id/i_am_image"
     android:layout_width="138dp"
-
     android:layout_height="118dp"
     android:scaleType="centerCrop" />
 </FrameLayout>

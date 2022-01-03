@@ -81,7 +81,9 @@ public class PlaceholderFragment2 extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         // 사진 저장 후 미디어 스캐닝을 돌려줘야 갤러리에 반영됨.
         mMediaScanner = MediaScanner.getInstance(getActivity().getApplicationContext());
-        root.findViewById(R.id.btn_capture).setOnClickListener(new View.OnClickListener() {
+
+
+        root.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
