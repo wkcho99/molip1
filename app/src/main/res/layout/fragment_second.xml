@@ -7,10 +7,28 @@ android:background="#FFFFFF"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/btn_capture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/beige"
+        android:text="Camera"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/iv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_capture"
+        tools:src="@tools:sample/avatars"
+        android:layout_centerHorizontal="true"/>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/pullToRefresh2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_result">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/gallery"
@@ -23,5 +41,21 @@ android:layout_height="match_parent">
         </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#009688"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_camera"
+        app:fabSize="normal">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
 
 </RelativeLayout>

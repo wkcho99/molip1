@@ -23,15 +23,44 @@ public class Launcher extends Activity {
     private static final int REQUEST_EXIT = 1;
     private static final int PERMISSIONS_REQUEST_CODE = 1240;
 
-
-
     String[] appPermissions = {
             Manifest.permission.READ_CONTACTS,
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.INTERNET,
             Manifest.permission.CALL_PHONE,
-            Manifest.permission.WRITE_CONTACTS
+            Manifest.permission.WRITE_CONTACTS,
+            Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
+
+//    public void checkPermission() {
+//        int permissionCamera = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+//        int permissionRead = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+//        int permissionWrite = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//
+//        if (permissionCamera != PackageManager.PERMISSION_GRANTED || permissionRead != PackageManager.PERMISSION_GRANTED || permissionWrite != PackageManager.PERMISSION_GRANTED) {
+//            if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.CAMERA)) {
+//                Toast.makeText(this, "Need Permission.", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            ActivityCompat.requestPermissions(this, new String[]{
+//                    Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSON);
+//        }
+//    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode,
+//                                           String permissions[], int[] grantResults) {
+//        switch (requestCode) {
+//            case REQUSET_PERMISSION: {
+//                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                    Toast.makeText(this, "Permission Check", Toast.LENGTH_LONG).show();
+//                } else {
+//                    Toast.makeText(this, "No Permission", Toast.LENGTH_LONG).show();
+//                    finish();
+//                }
+//            }
+//        }
+//    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,7 +95,6 @@ public class Launcher extends Activity {
         }
         return true;
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
