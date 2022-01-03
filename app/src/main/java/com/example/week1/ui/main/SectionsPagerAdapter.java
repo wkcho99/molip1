@@ -49,7 +49,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 break;
             case 2:
                 if (fragment3 == null){
-                    fragment3 = PlaceholderFragment2.newInstance();
+                    fragment3 = new Tab3Activity();
                 }
                 fragment = fragment3;
                 break;
