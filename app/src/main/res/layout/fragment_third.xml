@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.Tab3Activity"
     >
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,5 +57,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

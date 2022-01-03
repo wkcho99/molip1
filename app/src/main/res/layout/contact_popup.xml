@@ -56,14 +56,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/NAME">
 
-
-            <!--            <TextView-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="30dp"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                android:layout_marginLeft="5dp"-->
-            <!--                android:textSize="20sp" />-->
-
             <TextView
                 android:id="@+id/number"
                 android:layout_width="match_parent"
@@ -83,15 +75,6 @@
                 android:text="" />
 
         </LinearLayout>
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/profile"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="302dp"-->
-        <!--            android:background="@drawable/profile1"-->
-        <!--            tools:layout_editor_absoluteX="3dp"-->
-        <!--            tools:layout_editor_absoluteY="-2dp" />-->
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile"
             android:layout_width="309dp"
@@ -138,9 +121,6 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/round_textview"
                 android:text="share" />
-
         </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

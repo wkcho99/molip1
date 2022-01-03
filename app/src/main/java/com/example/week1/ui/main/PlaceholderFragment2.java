@@ -1,5 +1,4 @@
 package com.example.week1.ui.main;
-
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -30,7 +29,6 @@ import com.example.week1.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.File;
 import java.util.ArrayList;
-
 import android.Manifest;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
@@ -49,10 +47,6 @@ import java.util.Date;
 import java.util.Locale;
 import static android.os.Environment.DIRECTORY_PICTURES;
 
-/**
- * A placeholder fragment containing a simple view.
- */
-
 public class PlaceholderFragment2 extends Fragment {
     private ArrayList<String> mArrayList = new ArrayList<String>();
     private ImageAdapter mAdapter;
@@ -60,21 +54,16 @@ public class PlaceholderFragment2 extends Fragment {
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
     private ContentResolver contentResolver;
-
-
     public static PlaceholderFragment2 newInstance() {
         PlaceholderFragment2 fragment = new PlaceholderFragment2();
         Bundle bundle = new Bundle();
         fragment.setArguments(bundle);
         return fragment;
     }
-
-    //Camera
     private static final int REQUEST_IMAGE_CAPTURE = 672;
     private String imageFilePath;
     private Uri photoUri;
     private com.example.week1.ui.main.MediaScanner mMediaScanner; // 사진 저장 시 갤러리 폴더에 바로 반영사항을 업데이트 시켜주려면 이 것이 필요하다(미디어 스캐닝)
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,10 +72,6 @@ public class PlaceholderFragment2 extends Fragment {
         mAdapter = new ImageAdapter(context, mArrayList);
         contentResolver = context.getContentResolver();
     }
-
-
-
-
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -94,17 +79,8 @@ public class PlaceholderFragment2 extends Fragment {
         View root = inflater.inflate(R.layout.fragment_second, container, false);
         mRecyclerView = (RecyclerView) root.findViewById(R.id.gallery);
         mRecyclerView.setHasFixedSize(true);
-
-        //Camera
         // 사진 저장 후 미디어 스캐닝을 돌려줘야 갤러리에 반영됨.
         mMediaScanner = MediaScanner.getInstance(getActivity().getApplicationContext());
-        // 권한 체크
-//        TedPermission.with(getActivity().getApplicationContext())
-//            .setPermissionListener(permissionListener)
-//            .setRationaleMessage("카메라 권한이 필요합니다.")
-//            .setDeniedMessage("거부하셨습니다.")
-//            .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
-//            .check();
         root.findViewById(R.id.btn_capture).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,22 +100,13 @@ public class PlaceholderFragment2 extends Fragment {
                 }
             }
         });
-
-
-
-
-
         int numberOfColumns = 3;
         mLayoutManager = new GridLayoutManager(context,numberOfColumns);
-
         mRecyclerView.setLayoutManager(mLayoutManager);
-
         mArrayList = new ArrayList<>();
-
         mAdapter = new ImageAdapter(context,mArrayList);
         mRecyclerView.setAdapter(mAdapter);
         updateData();
-
         final SwipeRefreshLayout pullToRefresh = root.findViewById(R.id.pullToRefresh2);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -148,11 +115,9 @@ public class PlaceholderFragment2 extends Fragment {
                 pullToRefresh.setRefreshing(false);
             }
         });
-
         return root;
     }
 
-//
 //    //Camera
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -214,7 +179,6 @@ public class PlaceholderFragment2 extends Fragment {
                 result = "File close Error";
             }
             // 이미지 뷰에 비트맵을 set 하여 이미지 표현
-
             ((ImageView) getView().findViewById(R.id.iv_result)).setImageBitmap(rotate(bitmap, exifDegree));
         }
     }
@@ -243,21 +207,13 @@ public class PlaceholderFragment2 extends Fragment {
             Toast.makeText(getActivity().getApplicationContext(), "권한이 거부됨",Toast.LENGTH_SHORT).show();
         }
     };
-
-
-
-
-
-
     /* Update mArrayList and notify the change to the adapter */
     private void updateData(){
         mArrayList.clear();
         String[] projection = {
                 MediaStore.Images.Media._ID, MediaStore.Images.Media.DISPLAY_NAME};
-
         Cursor cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                 projection, null, null, "UPPER(" + MediaStore.Images.Media.DATE_TAKEN + ") ASC");
-
         if (cursor.moveToFirst()) {
             do {
                 Uri ContentUri = Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media._ID)));
@@ -265,16 +221,7 @@ public class PlaceholderFragment2 extends Fragment {
             } while (cursor.moveToNext());
         }
         cursor.close();
-
         /* Notify to the adapter */
         mAdapter.notifyDataSetChanged();
     }
-
-//    FloatingActionButton fab = findViewById(R.id.fab);
-//    fab.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//            onActivityResult();
-//        }
-//    });
 }

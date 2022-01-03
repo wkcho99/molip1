@@ -26,10 +26,7 @@
             android:includeFontPadding="false"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
-<!--        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
-<!--            android:id="@+id/pullToRefresh"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_list"
             android:layout_width="match_parent"
@@ -41,6 +38,6 @@
             tools:layout_constraintTop_creator="1"
             android:text="Click"
             />
-<!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

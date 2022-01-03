@@ -1,5 +1,4 @@
 package com.example.week1.ui.main;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,20 +14,16 @@ import com.example.week1.PopupActivity;
 import com.example.week1.R;
 
 import java.util.ArrayList;
-
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.CustomViewHolder> {
     private Context context;
-
     private ArrayList<String> mList = new ArrayList<String>();
     public int position;
-
     public int getPosition() {
         return position;
     }
     public void setPosition() {
         this.position = position;
     }
-
     public ImageAdapter(Context context, ArrayList<String> list) {
         this.context = context;
         this.mList.clear();
@@ -36,15 +31,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.CustomViewHo
     }
     public class CustomViewHolder extends RecyclerView.ViewHolder {
         protected ImageView imageView;
-
         public CustomViewHolder(View view) {
             super(view);
-
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
-
                     if (pos != RecyclerView.NO_POSITION) {
                         Intent intent = new Intent(context, PopupActivity.class);
                         intent.putExtra("url",mList.get(pos));
@@ -52,31 +44,22 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.CustomViewHo
                     }
                 }
             });
-
             this.imageView = (ImageView) view.findViewById(R.id.i_am_image);
         }
     }
-
-
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-
         View view = LayoutInflater.from(context)
                 .inflate(R.layout.gallery_layout, viewGroup, false);
-
         CustomViewHolder viewHolder = new CustomViewHolder(view);
-
         return viewHolder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewHolder, int position) {
         String data = mList.get(position);
         ImageView imageView = (ImageView) viewHolder.imageView.findViewById(R.id.i_am_image);
         Glide.with(context).load(data).into(imageView);
-
     }
-
     @Override
     public int getItemCount() {
         return (null != mList ? mList.size() : 0);

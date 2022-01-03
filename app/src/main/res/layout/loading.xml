@@ -22,6 +22,4 @@
         android:text="조원경X김수민"
         android:textColor="#FFFFFF"
         android:textSize="30dp"/>
-
-
 </LinearLayout>

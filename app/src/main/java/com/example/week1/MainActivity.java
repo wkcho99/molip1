@@ -11,10 +11,6 @@ import android.view.View;
 import com.example.week1.ui.main.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,24 +20,20 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(sectionsPagerAdapter);
-
         /* Make and link TabLayout with viewPager */
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-
     }
     @Override
     protected void onStop() {
         setResult(RESULT_OK);
         super.onStop();
     }
-
     @Override
     public void onBackPressed() {
         setResult(RESULT_OK);
         super.onBackPressed();
     }
-
     @Override
     protected void onDestroy() {
         setResult(RESULT_OK);

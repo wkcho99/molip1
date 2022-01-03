@@ -1,6 +1,5 @@
 package com.example.week1;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
-
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ContactActivity extends Activity {
@@ -32,7 +30,6 @@ public class ContactActivity extends Activity {
         //mImageView.setBackgroundResource(images[imageId]);
         name = (TextView) findViewById(R.id.name);
         tel = (TextView) findViewById(R.id.number);
-
         Intent intent = getIntent();
         String Name = intent.getStringExtra("name");
         String Phnumber = intent.getStringExtra("phnumber");
@@ -44,17 +41,13 @@ public class ContactActivity extends Activity {
         Button b = findViewById(R.id.button2);
         Button b3 = findViewById(R.id.button3);
         Button b4 = findViewById(R.id.button4);
-//        Button b6 = findViewById(R.id.button6);
-//        Button b7 = findViewById(R.id.button7);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Context c = v.getContext();
                 Intent intent2 = new Intent(Intent.ACTION_DIAL);
                 intent2.setData(Uri.parse("tel:"+Phnumber));
                 startActivity(intent2);
-
             }
         });
         b3.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +58,6 @@ public class ContactActivity extends Activity {
                 Intent intent3 = new Intent(Intent.ACTION_VIEW);
                 intent3.setData(Uri.parse("smsto:"+Phnumber));
                 startActivity(intent3);
-
             }
         });
         b4.setOnClickListener(new View.OnClickListener() {
@@ -82,32 +74,5 @@ public class ContactActivity extends Activity {
                 startActivity(Sharing);
             }
         });
-
-//        b5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent insert = new Intent(Intent.ACTION_INSERT,Uri.parse("content://contacts/people"));
-//                startActivity(insert);
-//            }
-//        });
-//        b6.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//
-//            public void onClick(View view) {
-//                Intent intentInsertEdit = new Intent(Intent.ACTION_EDIT);
-//                // Sets the MIME type
-//                intentInsertEdit.setType(ContactsContract.Contacts.);
-////                Context c = view.getContext();
-////                Intent edit = new Intent(Intent.ACTION_EDIT,Uri.parse("content://contacts/people/"+ ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
-//                startActivity(intentInsertEdit);
-//            }
-//        });
-//        b7.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent delete = new Intent(Intent.ACTION_DELETE,Uri.parse("content://contacts/people/"+ ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
-//                startActivity(delete);
-//            }
-//        });
     }
     }

@@ -1,6 +1,5 @@
 package com.example.week1;
 
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,12 +7,10 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,8 +19,6 @@ import java.util.Map;
 public class Launcher extends Activity {
     private static final int REQUEST_EXIT = 1;
     private static final int PERMISSIONS_REQUEST_CODE = 1240;
-
-
 
     String[] appPermissions = {
             Manifest.permission.READ_CONTACTS,
@@ -36,22 +31,18 @@ public class Launcher extends Activity {
             Manifest.permission.CAMERA,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.loading);
         super.onCreate(savedInstanceState);
         if (checkAndRequestPermissions())
             startMainActivity();
-        /* Start MainActivity */
     }
-
     @Override
     protected void onResume() {
         setContentView(R.layout.loading);
         super.onResume();
     }
-
     private boolean checkAndRequestPermissions(){
         List<String> listPermissionsNeeded = new ArrayList<>();
         for (String perm : appPermissions){
@@ -60,7 +51,6 @@ public class Launcher extends Activity {
                 listPermissionsNeeded.add(perm);
             }
         }
-
         if (!listPermissionsNeeded.isEmpty()){
             ActivityCompat.requestPermissions(this,
                     listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),
@@ -70,8 +60,6 @@ public class Launcher extends Activity {
         }
         return true;
     }
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == PERMISSIONS_REQUEST_CODE){
@@ -89,17 +77,14 @@ public class Launcher extends Activity {
             else showToast_PermissionDeny();
         }
     }
-
     private void showToast_PermissionDeny(){
         Toast.makeText(this, "권한 요청에 동의해주세요.", Toast.LENGTH_SHORT).show();
         finish();
     }
-
     private void startMainActivity(){
         Intent intent = new Intent (this, MainActivity.class);
         startActivityForResult(intent,REQUEST_EXIT);
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -110,4 +95,3 @@ public class Launcher extends Activity {
         }
     }
 }
-
