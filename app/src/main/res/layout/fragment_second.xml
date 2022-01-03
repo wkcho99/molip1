@@ -20,7 +20,7 @@ android:layout_height="match_parent">
         android:id="@+id/iv_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_capture"
+        android:layout_below="@+id/pullToRefresh2"
         tools:src="@tools:sample/avatars"
         android:layout_centerHorizontal="true"/>
 
@@ -28,7 +28,7 @@ android:layout_height="match_parent">
         android:id="@+id/pullToRefresh2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/iv_result">
+        android:layout_below="@+id/btn_capture">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/gallery"
@@ -42,20 +42,6 @@ android:layout_height="match_parent">
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#009688"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_camera"
-        app:fabSize="normal">
-
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
 </RelativeLayout>

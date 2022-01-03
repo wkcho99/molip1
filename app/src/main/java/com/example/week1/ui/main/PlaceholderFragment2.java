@@ -99,12 +99,12 @@ public class PlaceholderFragment2 extends Fragment {
         // 사진 저장 후 미디어 스캐닝을 돌려줘야 갤러리에 반영됨.
         mMediaScanner = MediaScanner.getInstance(getActivity().getApplicationContext());
         // 권한 체크
-        TedPermission.with(getActivity().getApplicationContext())
-                .setPermissionListener(permissionListener)
-                .setRationaleMessage("카메라 권한이 필요합니다.")
-                .setDeniedMessage("거부하셨습니다.")
-                .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
-                .check();
+//        TedPermission.with(getActivity().getApplicationContext())
+//            .setPermissionListener(permissionListener)
+//            .setRationaleMessage("카메라 권한이 필요합니다.")
+//            .setDeniedMessage("거부하셨습니다.")
+//            .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+//            .check();
         root.findViewById(R.id.btn_capture).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,23 +152,13 @@ public class PlaceholderFragment2 extends Fragment {
         return root;
     }
 
-
-
-
-
-
-
-
-    //Camera
+//
+//    //Camera
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "TEST_" + timeStamp + "_";
         File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,
-                ".jpg",
-                storageDir
-        );
+        File image = File.createTempFile(imageFileName,".jpg",storageDir);
         imageFilePath = image.getAbsolutePath();
         return image;
     }
