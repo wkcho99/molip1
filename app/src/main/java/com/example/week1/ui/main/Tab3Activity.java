@@ -103,22 +103,21 @@ public class Tab3Activity extends Fragment implements SensorEventListener {
         passView = root.findViewById(R.id.textView3);
         imageView = root.findViewById(R.id.imageView);
         stepCountView.setText(String.valueOf(currentSteps));
-        timeView.setText("Start: "+startTime);
+        timeView.setText(startTime);
         final Animation runningAnim = AnimationUtils.loadAnimation(context,R.anim.running);
         final Animation growingAnim = AnimationUtils.loadAnimation(context,R.anim.growing);
         if(currentSteps < 10) {
-            imageView.setImageResource(R.drawable.fish);
+            imageView.setImageResource(R.drawable.monster);
         }
-                if(currentSteps >= 10) {
-                    imageView.setImageResource(R.drawable.ingfish);
-                }
-                if(currentSteps >= 20) {
-                    imageView.setImageResource(R.drawable.gyara);
-                }
-        Log.i("startTime:", startTime);
+        if(currentSteps >= 10) {
+            imageView.setImageResource(R.drawable.ingfish);
+        }
+        if(currentSteps >= 20) {
+            imageView.setImageResource(R.drawable.gyara);
+        }
+        Log.i("Start:", startTime);
         tr = new Thread(new Runnable()
         {
-
             @Override
             public void run()
             {
@@ -132,16 +131,14 @@ public class Tab3Activity extends Fragment implements SensorEventListener {
                             @Override
                             public void run()
                             {
-                                passView.setText("Elapsed Time: "+passTime());
+                                passView.setText(passTime());
                                 PreferenceManager.setString(context,"passtime",passTime);
                             }
                         });
                     }
                     catch (InterruptedException e)
                     {
-                        // ooops
                     }
-
             }
         });
         tr.start();
@@ -151,25 +148,21 @@ public class Tab3Activity extends Fragment implements SensorEventListener {
                 // 현재 걸음수 초기화
                 currentSteps = 0;
                 stepCountView.setText(String.valueOf(currentSteps));
-                timeView.setText("Start: "+ getTime());
+                timeView.setText(getTime());
                 PreferenceManager.setString(context,"starttime",getTime());
-                imageView.setImageResource(R.drawable.fish);
+                imageView.setImageResource(R.drawable.monster);
                 Log.i("startTime:", startTime);
                 Log.i("onclick:",Integer.toString(currentSteps));
             }
         });
         return root;
     }
-
     public void onStart() {
         super.onStart();
         if(stepCountSensor !=null) {
             sensorManager.registerListener(this,stepCountSensor,SensorManager.SENSOR_DELAY_FASTEST);
         }
     }
-
-
-
     @Override
     public void onSensorChanged(SensorEvent event) {
         // 걸음 센서 이벤트 발생시
@@ -190,12 +183,8 @@ public class Tab3Activity extends Fragment implements SensorEventListener {
                 }
                 PreferenceManager.setInt(context,"rebuild",currentSteps);
             }
-
-
         }
-
     }
-
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
@@ -226,103 +215,4 @@ public class Tab3Activity extends Fragment implements SensorEventListener {
         tr.interrupt( );
 
     }
-
-
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
-//        mMap = googleMap;
-//
-//        setDefaultLocation(); // GPS를 찾지 못하는 장소에 있을 경우 지도의 초기 위치가 필요함.
-//
-//        getLocationPermission();
-//
-//        updateLocationUI();
-//
-//        getDeviceLocation();
-//    }
-//
-//    private void getLocationPermission() {
-//        if (ContextCompat.checkSelfPermission(context,
-//                android.Manifest.permission.ACCESS_FINE_LOCATION)
-//                == PackageManager.PERMISSION_GRANTED) {
-//            mLocationPermissionGranted = true;
-//        } else {
-//            ActivityCompat.requestPermissions(getActivity(),
-//                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-//                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-//        }
-//    }
-//    private void getDeviceLocation() {
-//        try {
-//            if (mLocationPermissionGranted) {
-//                mFusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
-//            }
-//        } catch (SecurityException e)  {
-//            Log.e("Exception: %s", e.getMessage());
-//        }
-//    }
-//
-//    private void setDefaultLocation() {
-//        if (currentMarker != null) currentMarker.remove();
-//
-//        MarkerOptions markerOptions = new MarkerOptions();
-//        markerOptions.position(mDefaultLocation);
-//        markerOptions.title("위치정보 가져올 수 없음");
-//        markerOptions.snippet("위치 퍼미션과 GPS 활성 여부 확인하세요");
-//        markerOptions.draggable(true);
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//        currentMarker = mMap.addMarker(markerOptions);
-//
-//        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(mDefaultLocation, 15);
-//        mMap.moveCamera(cameraUpdate);
-//    }
-//
-//    String getCurrentAddress(LatLng latlng) {
-//        // 위치 정보와 지역으로부터 주소 문자열을 구한다.
-//        List<Address> addressList = null ;
-//        Geocoder geocoder = new Geocoder( context, Locale.getDefault());
-//
-//        // 지오코더를 이용하여 주소 리스트를 구한다.
-//        try {
-//            addressList = geocoder.getFromLocation(latlng.latitude,latlng.longitude,1);
-//        } catch (IOException e) {
-//            Toast. makeText( context, "위치로부터 주소를 인식할 수 없습니다. 네트워크가 연결되어 있는지 확인해 주세요.", Toast.LENGTH_SHORT ).show();
-//            e.printStackTrace();
-//            return "주소 인식 불가" ;
-//        }
-//
-//        if (addressList.size() < 1) { // 주소 리스트가 비어있는지 비어 있으면
-//            return "해당 위치에 주소 없음" ;
-//        }
-//
-//        // 주소를 담는 문자열을 생성하고 리턴
-//        Address address = addressList.get(0);
-//        StringBuilder addressStringBuilder = new StringBuilder();
-//        for (int i = 0; i <= address.getMaxAddressLineIndex(); i++) {
-//            addressStringBuilder.append(address.getAddressLine(i));
-//            if (i < address.getMaxAddressLineIndex())
-//                addressStringBuilder.append("\n");
-//        }
-//
-//        return addressStringBuilder.toString();
-//    }
-//    private void updateLocationUI() {
-//        if (mMap == null) {
-//            return;
-//        }
-//        try {
-//            if (mLocationPermissionGranted) {
-//                mMap.setMyLocationEnabled(true);
-//                mMap.getUiSettings().setMyLocationButtonEnabled(true);
-//            } else {
-//                mMap.setMyLocationEnabled(false);
-//                mMap.getUiSettings().setMyLocationButtonEnabled(false);
-//                mCurrentLocatiion = null;
-//                getLocationPermission();
-//            }
-//        } catch (SecurityException e)  {
-//            Log.e("Exception: %s", e.getMessage());
-//        }
-//    }
-
 }

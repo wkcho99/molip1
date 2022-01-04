@@ -17,11 +17,10 @@
         android:textSize="30dp" />
 
     <ImageView
-        android:layout_width="334dp"
-        android:layout_height="184dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
         android:layout_gravity="center"
-        android:background="@drawable/fish"
-        android:foreground="@drawable/fish"></ImageView>
+        android:background="@drawable/pokemon"></ImageView>
 
     <TextView
         android:layout_width="wrap_content"

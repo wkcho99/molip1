@@ -7,120 +7,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/lighter_beige"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/light_beige"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/NAME"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@color/lighter_beige"
-            app:layout_constraintBottom_toTopOf="@id/NUMBER"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile">
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/round_textview"
-                android:fontFamily="@font/notesanskr_regular"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="조원경"
-                android:textColor="#ff000000"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/NUMBER"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@color/lighter_beige"
-            android:fontFamily="@font/notesanskr_regular"
-            android:includeFontPadding="false"
-            android:orientation="vertical"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/NAME">
-
-            <TextView
-                android:id="@+id/number"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/round_textview"
-                android:gravity="center"
-                android:text="010-0000-0000"
-                android:textColor="#ff000000"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/blank"
-                android:layout_width="250dp"
-                android:layout_height="30dp"
-                android:text="" />
-
-        </LinearLayout>
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView3"-->
+<!--            android:layout_width="250dp"-->
+<!--            android:layout_height="250dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            app:srcCompat="@drawable/monsterball" />-->
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile"
-            android:layout_width="309dp"
-            android:layout_height="200dp"
-            android:background="@drawable/fish"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:background="@drawable/monsterball"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"/>
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8"
-            android:weightSum="3"
-            tools:layout_editor_absoluteX="0dp">
+    <LinearLayout
+        android:id="@+id/NAME"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:orientation="vertical"
+        android:background="@color/light_beige">
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/round_textview"
-                android:text="call" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/notesanskr_regular"
+            android:includeFontPadding="false"
+            android:text="조원경"
+            android:textColor="#242424"
+            android:textSize="35dp"
+            android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/round_textview"
-                android:text="message" />
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="5dp"
+            android:text="010-0000-0000"
+            android:textColor="#242424"
+            android:textSize="20sp" />
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/round_textview"
-                android:text="share" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/NUMBER"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/lighter_beige"-->
+<!--        android:fontFamily="@font/notesanskr_regular"-->
+<!--        android:includeFontPadding="false"-->
+<!--        android:orientation="vertical">-->
+
+<!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="3"
+        android:background="@color/light_beige"
+        android:layout_marginTop="380dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="10dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="25dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:background="@drawable/round_textview"
+            android:text="call" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="15dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:background="@drawable/round_textview"
+            android:text="message" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="15dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:background="@drawable/round_textview"
+            android:text="share" />
+
+    </LinearLayout>
+
+
 </FrameLayout>
