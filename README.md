@@ -1,6 +1,6 @@
 Pokemon
 ======
-<img src="https://user-images.githubusercontent.com/90249177/148031177-748fb2dc-1626-42b5-aad4-543357d7d010.png" width="100%" height="60%" title="Loading" alt="Loading"></img>
+<img src="https://user-images.githubusercontent.com/90249177/148031177-748fb2dc-1626-42b5-aad4-543357d7d010.png" width="100%" height="60%" title="Pokemon" alt="Pokemon"></img>
 
 ## Abstract
 
@@ -44,13 +44,6 @@ Pokemon
  <li>[사진 및 동영상 촬영]          ->  탭2에서 이미지를 추가할 때 사용합니다.</li>
  <li>[신체 활동 정보 엑세스]        ->  Android10 이상의 기기에서 보행 탐지기 센서로 값을 읽을 때 사용합니다. </li>
 </ul>
-
-## 탭1
-
-
-## 탭2
-
-## 탭3
 
 
 ## Contributers
