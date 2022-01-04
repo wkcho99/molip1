@@ -152,6 +152,7 @@ public class Tab3Activity extends Fragment implements SensorEventListener {
                 stepCountView.setText(String.valueOf(currentSteps));
                 timeView.setText(getTime());
                 PreferenceManager.setString(context,"starttime",getTime());
+                PreferenceManager.setString(context,"rebuild",getTime());
                 imageView.setImageResource(R.drawable.monster);
                 Log.i("startTime:", startTime);
                 Log.i("onclick:",Integer.toString(currentSteps));

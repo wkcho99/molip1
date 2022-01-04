@@ -16,6 +16,7 @@ android:layout_height="wrap_content" >
     android:id="@+id/i_am_image"
     android:layout_width="138dp"
     android:layout_height="118dp"
+    android:backgroundTint="@color/white"
     android:background="@color/white"
     android:scaleType="centerCrop" />
 </FrameLayout>
