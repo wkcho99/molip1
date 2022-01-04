@@ -23,6 +23,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,9 +39,19 @@ public class PopupActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.img_popup);
         imageView = (PhotoView) findViewById(R.id.expanded_img);
+        TextView textView6 = (TextView) findViewById(R.id.textView6);
+
+
         Intent intent = getIntent();
         String uri = intent.getStringExtra("url");
         Glide.with(this).load(uri).into(imageView);
+        String name = getPath(uri);
+
+        Log.i("uri:", name);
+        String names = name.substring(29, name.length()-4);
+
+        Log.i("uris:", names);
+        textView6.setText("@"+names);
         Button b2 = findViewById(R.id.btn_delete);
         Button b3 = findViewById(R.id.btn_share);
         b2.setOnClickListener(new View.OnClickListener() {

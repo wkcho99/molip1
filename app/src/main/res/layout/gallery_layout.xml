@@ -7,6 +7,7 @@ android:orientation="horizontal"
 android:padding="3dp"
 android:clickable="true"
 android:focusable="false"
+android:background="@color/beige"
 android:focusableInTouchMode="false"
 android:layout_width="match_parent"
 android:layout_height="wrap_content" >
@@ -15,5 +16,6 @@ android:layout_height="wrap_content" >
     android:id="@+id/i_am_image"
     android:layout_width="138dp"
     android:layout_height="118dp"
+    android:background="@color/white"
     android:scaleType="centerCrop" />
 </FrameLayout>
