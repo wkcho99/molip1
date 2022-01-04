@@ -202,7 +202,8 @@ public class Tab3Activity extends Fragment implements SensorEventListener {
         Log.i("now:",Long.toString(mNow));
         Log.i("temp:",Long.toString(temp));
 
-        mPass = temp -mNow;
+        if(mNow>0) mPass = temp - mNow;
+        else return "Press RESET button";
         long hour = mPass/(60*60*1000);
         long min = (mPass/(60*1000))%60;
         long sec = (mPass/(1000))%60;
