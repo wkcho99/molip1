@@ -15,24 +15,23 @@ android:layout_height="fill_parent">
 
     <Button
         android:id="@+id/btn_delete"
-        android:layout_width="60dp"
+        android:layout_width="40dp"
         android:layout_height="30dp"
         android:layout_marginTop="517dp"
         android:layout_marginRight="110dp"
         android:layout_gravity="center_horizontal"
-        android:text="Delete"
-        android:background="@color/white"
-        android:textColor="@color/black" />
+        android:background="@drawable/trash"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btn_share"
-        android:layout_width="60dp"
+        android:layout_width="40dp"
         android:layout_height="30dp"
         android:layout_gravity="center_horizontal"
-        android:background="@color/white"
         android:layout_marginTop="517dp"
-        android:layout_marginRight="42dp"
-        android:text="Share" />
+        android:layout_marginRight="62dp"
+        android:background="@drawable/direct"
+ />
 
     <ImageView
         android:id="@+id/imageView4"
