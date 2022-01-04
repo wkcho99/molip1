@@ -67,7 +67,7 @@
                 android:clickable="true"
                 app:maxImageSize="35dp"
                 app:rippleColor="#FFFFFF"
-                app:srcCompat="@android:drawable/ic_input_add" />
+                app:srcCompat="@drawable/add_fab" />
         </RelativeLayout>
 
     </LinearLayout>
