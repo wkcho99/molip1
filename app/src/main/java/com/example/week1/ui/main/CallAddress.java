@@ -105,7 +105,6 @@ public class CallAddress extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_INSERT, Uri.parse("content://contacts/people"));
                 startActivity(intent); // Code ADD
-
             }
         });
         editSearch.addTextChangedListener(new TextWatcher() {
