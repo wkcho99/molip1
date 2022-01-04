@@ -57,16 +57,14 @@ Pokemon
  <li>갤러리 사용 예시입니다!</li>
  <li>사랑스러운 포켓몬을 간직할 수 있다고!</li>
 </ul>
-<img src="https://user-images.githubusercontent.com/90249177/148053968-865b9faf-0e07-48c7-9fb2-197bf7127b37.gif" width="270px" height="480px" title="Contact" alt="Contact"></img>
-
+<img src="https://user-images.githubusercontent.com/90249177/148058839-3242eae9-d14c-428e-96a5-e0c29f347675.gif" width="270px" height="480px" title="Contact" alt="Contact"></img>
 
 ## Pedometer .gif
 <ul>
  <li>만보기 사용 예시입니다!</li>
  <li>포켓몬과 함께 성장하고 싶다면!</li>
 </ul>
-<img src="https://user-images.githubusercontent.com/90249177/148053968-865b9faf-0e07-48c7-9fb2-197bf7127b37.gif" width="270px" height="480px" title="Contact" alt="Contact"></img>
-
+<img src="https://user-images.githubusercontent.com/90249177/148058781-5c562486-0052-4b27-ac35-aae32cf7db5c.gif" width="270px" height="480px" title="Contact" alt="Contact"></img>
 
 ## Contributers
 
