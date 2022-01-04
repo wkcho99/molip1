@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
     private ArrayList<PhoneBook> mList;
     private Context context;
-    int[] images = new int[] {R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5, R.drawable.profile6, R.drawable.profile7};
+    int[] images = new int[] {R.drawable.ball1, R.drawable.ball2, R.drawable.ball3, R.drawable.ball4, R.drawable.ball5, R.drawable.ball6, R.drawable.ball7, R.drawable.ball8, R.drawable.ball9, R.drawable.ball10, R.drawable.ball11};
     public CustomAdapter(Context context, ArrayList<PhoneBook> list) {
         this.context = context;
         this.mList = list;
@@ -41,9 +42,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
                         Intent intent = new Intent(context, ContactActivity.class);
-                        intent.putExtra("id",mList.get(pos).getId());
+                        intent.putExtra("personid",mList.get(pos).getPersonId());
                         intent.putExtra("name",mList.get(pos).getName());
                         intent.putExtra("phnumber",mList.get(pos).getTel());
+                        intent.putExtra("photo",mList.get(pos).getPhoto());
                         context.startActivity(intent);
                     }
                 }
@@ -77,11 +79,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewholder, int position) {
         PhoneBook data = mList.get(position);
-        viewholder.name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         int imageId = (int)(Math.random() * images.length);
         viewholder.profile.setBackgroundResource(images[imageId]);
         viewholder.name.setGravity(Gravity.LEFT);
         viewholder.name.setText(data.getName());
+        Log.i("viewholder:",data.getName());
     }
     @Override
     public int getItemCount() {
