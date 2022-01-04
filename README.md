@@ -1,6 +1,6 @@
 Pokemon
 ======
-<img src="https://user-images.githubusercontent.com/90249177/148025525-2d96bda0-fec4-464d-b72c-f8e21251c958.png" width="100%" height="60%" title="Loading" alt="Loading"></img>
+<img src="https://user-images.githubusercontent.com/90249177/148031177-748fb2dc-1626-42b5-aad4-543357d7d010.png" width="100%" height="60%" title="Loading" alt="Loading"></img>
 
 ## Features
 <ol>
@@ -14,7 +14,7 @@ Pokemon
   </ul>
   <li><h3>Pedometer</h3></li>
       <ul>
-    <li>스마트폰에 있는 만보기 기능을 해당 앱에서 </li>
+    <li>스마트폰에 있는 만보기 기능을 해당 앱에서 이용할 수 있습니다. RESET 버튼을 클릭하면 만보기 기능은 초기화되며 다시 사용할 수 있습니다. 추가로 만보기를 사용 시작한 시각과 현재까지 이용한 시간을 확인할 수 있습니다. 만보기 기능을 시작할 때 몬스터볼로 시작하게 되며 특정 걸음이 넘어가면 잉어킹 -> 갸라도스로 진화하게 됩니다. 포켓몬과 함께 진화하며 건강한 삶으로 성장하고 싶으면 해당 만보기 기능을 이용해 보세요!</li>
   </ul>
  </ol>
  
