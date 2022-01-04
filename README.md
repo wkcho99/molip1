@@ -50,7 +50,7 @@ Pokemon
  <li>연락처 사용 예시입니다!</li>
  <li>나만의 포켓몬과의 연락할 수 있는 유일한 방법!</li>
 </ul>
-<img src="https://user-images.githubusercontent.com/90249177/148053968-865b9faf-0e07-48c7-9fb2-197bf7127b37.gif" width="300px" height="480px" title="Contact" alt="Contact"></img>
+<img src="https://user-images.githubusercontent.com/90249177/148053968-865b9faf-0e07-48c7-9fb2-197bf7127b37.gif" width="270px" height="480px" title="Contact" alt="Contact"></img>
 
 ## Gallery .gif
 <ul>
