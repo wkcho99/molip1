@@ -125,16 +125,18 @@ public class Tab3Activity extends Fragment implements SensorEventListener {
                     try
                     {
                         Thread.sleep(1000);
-                        getActivity().runOnUiThread(new Runnable() // start actions in UI thread
-                        {
-
-                            @Override
-                            public void run()
+                        if(getActivity()!=null){
+                            getActivity().runOnUiThread(new Runnable() // start actions in UI thread
                             {
-                                passView.setText(passTime());
-                                PreferenceManager.setString(context,"passtime",passTime);
-                            }
-                        });
+                                @Override
+                                public void run()
+                                {
+                                    passView.setText(passTime());
+                                    PreferenceManager.setString(context,"passtime",passTime);
+                                }
+                            });
+                        }
+
                     }
                     catch (InterruptedException e)
                     {
