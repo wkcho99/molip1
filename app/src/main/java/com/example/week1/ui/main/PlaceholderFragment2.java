@@ -87,7 +87,7 @@ public class PlaceholderFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivity(intent); // Code ADD
+                //startActivity(intent); // Code ADD
                 if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     File photoFile = null;
                     try {
